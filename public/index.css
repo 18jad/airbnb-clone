@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #ffffff;
+  border-radius: 50px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #FF385C;
+  border-radius: 50px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #c42e49;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #811f31;
+}
+body{
+  font-family: 'Nunito Sans', sans-serif;
+}
+.footer{
+  font-size: 14px;
+}
+.host{
+  color:#222222;
+  font-size: 15px;
+}
+.option-header:hover{
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.18) !important;
+}
+.search{
+  box-shadow: rgb(0 0 0 / 8%) 0px 1px 2px, rgb(0 0 0 / 5%) 0px 4px 12px !important;
+}
+.banner-button{
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.829);
+}
+.banner-button:hover{
+  box-shadow: 0px 3px 8px 1px rgba(0, 0, 0, 0.829);
+}
+.banner-button:active{
+  box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.829);
+}
