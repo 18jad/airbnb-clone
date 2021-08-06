@@ -14,7 +14,6 @@ export default function Home({ exploreData, cardsData }) {
         <title>Airbnb: Vacation Rentals, Cabins, Beach Houses, Unique Homes & Experiences</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      
       <Header />
       <Banner />
 
@@ -63,10 +62,12 @@ export async function getStaticProps() {
 
   const cardsData = await fetch('https://links.papareact.com/zp1').then((res) => res.json());
 
+
   return {
     props: {
       exploreData,
-      cardsData
+      cardsData,
+
     }
   }
 }
