@@ -7,6 +7,9 @@ import { ChevronLeftIcon } from '@heroicons/react/solid'
 import { ChevronRightIcon } from '@heroicons/react/solid'
 import InfoCard from "../components/InfoCard";
 import { motion } from 'framer-motion';
+import Map from "../components/Map";
+import Head from 'next/head'
+
 
 
 
@@ -27,9 +30,13 @@ function Search({ searchResults }) {
 
     return (
         <div>
+            <Head>
+             <title>{`Airbnb: ${formattedLocation} | ${formattedStartDate} | ${formattedEndDate} | ${noOfGuest} Guests `}</title>
+             <link rel="icon" href="/favicon.ico" />
+            </Head>
             <Header placeholder={`${formattedLocation} | ${formattedStartDate} | ${formattedEndDate} | ${noOfGuest} Guests`} />
-            <main className="flex items-center">
-                <section className="flex-grow mt-3 px-6">
+            <main className="flex items-center justify-center">
+                <section className=" mt-3 px-6">
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
@@ -57,6 +64,9 @@ function Search({ searchResults }) {
                         transition={{ duration: 1 }}
                         className="text-3xl font-semibold mt-5 mb-3">Stays on {formattedLocation}
                     </motion.h1>
+                        <section className="max-w-[900px] h-[400px] map mb-6">
+                        <Map searchResults={ searchResults} />
+                        </section>
                     <motion.div 
                         variants={fadeLeft}
                         initial="hidden"
@@ -108,8 +118,9 @@ function Search({ searchResults }) {
                 </section>
                     <div>
                     </div>
-                    
+
             </main>
+               
             <Footer />
         </div>
     )

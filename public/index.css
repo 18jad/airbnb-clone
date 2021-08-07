@@ -37,13 +37,8 @@ body{
 .option-header:hover{
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.18) !important;
 }
-@media screen and (min-width: 802px) {
-  .search{
-  box-shadow: rgb(0 0 0 / 8%) 0px 1px 2px, rgb(0 0 0 / 5%) 0px 4px 12px !important;
-}
-}
 .search{
-  box-shadow: none;
+  box-shadow: rgb(0 0 0 / 8%) 0px 1px 2px, rgb(0 0 0 / 5%) 0px 4px 12px !important;
 }
 .banner-button{
   box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.829);
@@ -53,4 +48,22 @@ body{
 }
 .banner-button:active{
   box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.829);
+}
+.point{
+  filter: drop-shadow(0 0 0.5rem #FF385C);
+  box-shadow: 0px 17px 6px -10px rgba(0, 0, 0, 0.747);
+}
+.pop{
+  filter: drop-shadow(0 0 0.2rem #ff385d8f);
+  border-radius: 20px;
+  overflow: hidden;
+  perspective: 1px;
+}
+.map{
+    border-radius: 30px;
+    overflow: hidden;
+    perspective: 1px;
+}
+.map__photo{
+  filter: drop-shadow(1px 1px 0.2rem #000000bd);
 }

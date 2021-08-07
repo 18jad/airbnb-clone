@@ -72,9 +72,10 @@ function Header({ placeholder}) {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{duration : 1}}   
-                className="flex items-center md:border-2  rounded-full py-2 search md:shadow-sm ">
-                <input type="text" value={searchInput} onChange={(e) => setSearchInput(e.target.value)} className="outline-none flex-grow pl-5 bg-transparent text-sm text-gray-600 font font-semibold placeholder-[#222222] placeholder-shown:hidden sm:placeholder-shown:block" placeholder={placeholder || "Start your search"} />
-                    <SearchIcon className="h-8 hover:animate-spin hidden md:inline-flex bg-[#FF385C] text-white rounded-full p-2 md:mx-2 cursor-pointer" />
+                className="flex items-center border-2 w-min rounded-full py-2 search shadow-sm lg:w-full ">
+                
+                <input type="text" value={searchInput} onChange={(e) => setSearchInput(e.target.value)} className="outline-none flex-grow pl-5 bg-transparent text-sm  text-gray-600 font font-semibold placeholder-[#222222] " placeholder={placeholder || "Start your search"} />
+                    <SearchIcon className="h-8 hover:animate-spin inline-flex md:inline-flex bg-[#FF385C] mr-1 text-white rounded-full p-2  md:mx-2 cursor-pointer" />
             </motion.div>
 
             {/* Right */}
@@ -82,16 +83,15 @@ function Header({ placeholder}) {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{duration : 1}} 
-                className="flex space-x-2 items-center justify-end text-gray-500  cursor-pointer">
+                className="hidden sm:flex space-x-2 items-center justify-end text-gray-500  cursor-pointer">
                 <p className="cursor-pointer hover:bg-gray-100 p-2 py-[10px] rounded-full hidden md:inline host">Become a host</p>
-                <GlobeAltIcon className="h-9 hidden hover:animate-spin sm:inline cursor-pointer host hover:bg-gray-100 rounded-full p-2" />
+                <GlobeAltIcon className="h-9 hover:animate-spin inline cursor-pointer host hover:bg-gray-100 rounded-full p-2" />
                 
                 <div className="flex items-center border border-gray-300 transition duration-200 rounded-full option-header space-x-2  py-[5px] px-1">
                     <MenuIcon className="h-6 cursor-pointer" />
                     <UserCircleIcon className="h-8 cursor-pointer"/>
                 </div>
             </motion.div>
-
             {searchInput && 
                 <motion.div 
                 initial={{ opacity: 0 }}
@@ -102,7 +102,8 @@ function Header({ placeholder}) {
                     ranges={[selectionRange]}
                     minDate={new Date()}
                     rangeColors={["#FF385C"]}
-                    onChange={ handleSelect }
+                    onChange={handleSelect}
+                    className="bg-transparent"
                 />
                 <div className="flex items-center mb-4">
                     <h2 className="text-2xl flex-grow px-2">Number of Guests</h2>
@@ -114,9 +115,8 @@ function Header({ placeholder}) {
                     <button onClick={search} className="flex-grow py-2 font-semibold text-[#FF385C] hover:bg-gray-200 transition duration-150"><div onClick={resetInput}>Search</div></button>
                     
                 </div>
-                </motion.div>
-            }
-                
+                    </motion.div>
+            }     
         </motion.header>
     )
 }

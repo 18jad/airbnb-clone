@@ -8,7 +8,7 @@ function InfoCard({img, location, title, description,star,price,total }) {
     const [heartColor, setHeartColor] = useState(true)
     
     return (
-        <div className="flex py-7 rounded-xl px-4  shadow hover:opacity-80 hover:shadow-lg transition duration-200 ease-out first:border-t my-4">
+        <div className="flex py-7 rounded-xl px-4  shadow hover:opacity-80 hover:shadow-lg transition duration-200 ease-out border-t my-4">
             <div className="relative h-24 w-40 md:h-52 md:w-80 flex-shrink-0 cursor-pointer">
                 <Image src={img} layout="fill" objectFit="cover" className="rounded-2xl"/>
             </div>
