@@ -11,6 +11,7 @@ import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 import { DateRangePicker } from 'react-date-range';
 import { useRouter } from "next/dist/client/router";
+import { motion } from 'framer-motion';
 
 function Header({ placeholder}) {
     const [searchInput, setSearchInput] = useState("");
@@ -48,13 +49,18 @@ function Header({ placeholder}) {
     }
 
     return (
-        <header className="sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md p-4 md:px-10">
+        <motion.header 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{duration : 1}}   
+            className="sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md p-4 md:px-10">
 
             {/* Left */}
             <div onClick={() => router.push("/") } className="relative flex h-10 cursor-pointer items-center my-auto">
                 <Image
-                    src="https://links.papareact.com/qd3"
-                    layout='fill'
+                    src="https://bit.ly/3fIs74p"
+                    height="120"
+                    width = "200"
                     objectFit="contain"
                     objectPosition="left"
                     className="hover:animate-pulse"
@@ -62,13 +68,21 @@ function Header({ placeholder}) {
             </div>
 
             {/* Middle - Search */}
-            <div className="flex items-center md:border-2  rounded-full py-2 search md:shadow-sm ">
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{duration : 1}}   
+                className="flex items-center md:border-2  rounded-full py-2 search md:shadow-sm ">
                 <input type="text" value={searchInput} onChange={(e) => setSearchInput(e.target.value)} className="outline-none flex-grow pl-5 bg-transparent text-sm text-gray-600 font font-semibold placeholder-[#222222] placeholder-shown:hidden sm:placeholder-shown:block" placeholder={placeholder || "Start your search"} />
                     <SearchIcon className="h-8 hover:animate-spin hidden md:inline-flex bg-[#FF385C] text-white rounded-full p-2 md:mx-2 cursor-pointer" />
-            </div>
+            </motion.div>
 
             {/* Right */}
-            <div className="flex space-x-2 items-center justify-end text-gray-500  cursor-pointer">
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{duration : 1}} 
+                className="flex space-x-2 items-center justify-end text-gray-500  cursor-pointer">
                 <p className="cursor-pointer hover:bg-gray-100 p-2 py-[10px] rounded-full hidden md:inline host">Become a host</p>
                 <GlobeAltIcon className="h-9 hidden hover:animate-spin sm:inline cursor-pointer host hover:bg-gray-100 rounded-full p-2" />
                 
@@ -76,10 +90,14 @@ function Header({ placeholder}) {
                     <MenuIcon className="h-6 cursor-pointer" />
                     <UserCircleIcon className="h-8 cursor-pointer"/>
                 </div>
-            </div>
+            </motion.div>
 
             {searchInput && 
-                <div className="flex flex-col col-span-3 sm:mx-auto shadow-md">
+                <motion.div 
+                initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{duration : 1}} 
+                className="flex flex-col col-span-3 sm:mx-auto shadow-md">
                 <DateRangePicker
                     ranges={[selectionRange]}
                     minDate={new Date()}
@@ -91,14 +109,15 @@ function Header({ placeholder}) {
                     <UsersIcon className="h-5" />
                     <input type="number" value={noOfGuest} onChange={(e) => setNoOfGuest(e.target.value)} min="1" className="w-12 pl-2 text-lg outline-none text-[#FF385C] cursor-default" />
                 </div>
-                <div className="flex border-t py-2">
-                    <button className="flex-grow text-gray-500" onClick={resetInput}>Cancel</button>
-                    <button onClick={search} className="flex-grow text-[#FF385C]">Search</button>
+                <div className="flex border-t ">
+                    <button className="flex-grow py-2 text-gray-500 font-semibold hover:bg-[#ff385d54] transition duration-150" onClick={resetInput}>Cancel</button>
+                    <button onClick={search} className="flex-grow py-2 font-semibold text-[#FF385C] hover:bg-gray-200 transition duration-150"><div onClick={resetInput}>Search</div></button>
+                    
                 </div>
-                </div>
+                </motion.div>
             }
                 
-        </header>
+        </motion.header>
     )
 }
 

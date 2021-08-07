@@ -5,9 +5,15 @@ import Header from '../components/Header'
 import LargeCard from '../components/LargeCard';
 import MediumCard from '../components/MediumCard';
 import SmallCard from '../components/SmallCard';
+import { motion } from 'framer-motion';
+
 
 
 export default function Home({ exploreData, cardsData }) {
+  const fadeLeft = {
+    hidden : { opacity: 0, x: -100 },
+    visible : {opacity:1, x: 0}
+  }
   return (
     <div className="">
       <Head>
@@ -20,9 +26,19 @@ export default function Home({ exploreData, cardsData }) {
       <main className="max-w-7xl mx-auto px-8 sm:px-16">
         {/* Explore Nearby Section */}
         <section className="pt-6">
-          <h2 className="text-4xl font-semibold font pb-5">Explore nearby</h2>
+          <motion.h2
+            variants={fadeLeft}
+            initial="hidden"
+            animate="visible"
+            transition={{duration:1}}
+            className="text-4xl font-semibold font pb-5">Explore nearby</motion.h2>
       {/* Fetching Data */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <motion.div
+            variants={fadeLeft}
+            initial="hidden"
+            animate="visible"
+            transition={{duration:1}}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {exploreData?.map((item) => (
             <SmallCard
             key={item.img}
@@ -30,11 +46,16 @@ export default function Home({ exploreData, cardsData }) {
             distance={item.distance}
             location={item.location} />
             )) }
-          </div>
+          </motion.div>
         </section>
       {/* Live Anywhere Section */}
         <section>
-          <h2 className="text-4xl font-semibold font py-8">Live anywhere</h2>
+          <motion.h2
+            variants={fadeLeft}
+            initial="hidden"
+            animate="visible"
+            transition={{duration:1}}
+            className="text-4xl font-semibold font py-8">Live anywhere</motion.h2>
           <div className="flex image-scrollbar space-x-3 overflow-x-scroll overflow-y-hidden p-3 scrollbar-hide">
           {cardsData?.map(({img, title}) => (
             <MediumCard

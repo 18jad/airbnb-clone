@@ -3,13 +3,13 @@ import Image from "next/image"
 
 function LargeCard({ img, title, description, buttonText }) {
     return (
-        <section className="relative py-16 cursor-pointer">
-            <div className="relative h-96 min-w-[300px]">
+        <section className="relative py-16 ">
+            <div className="relative h-96 min-w-[300px] rounded-2xl shadow-xl">
                 <Image
                     src={img}
                     layout="fill"
                     objectFit="cover"
-                    className="rounded-2xl"
+                    className="rounded-2xl "
                 />
             </div>
             <div className="absolute top-32 left-12">

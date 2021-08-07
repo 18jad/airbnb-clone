@@ -1,9 +1,13 @@
 import Image from "next/image"
-
+import { motion } from 'framer-motion';
 
 function Banner() {
     return (
-        <div className="relative h-[300px] sm:h-[400px] lg:h-[500px] xl:h-[600px] 2xl:h-[600px]">
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{duration : 1}}   
+            className="relative h-[300px] sm:h-[400px] lg:h-[500px] xl:h-[600px] 2xl:h-[600px]">
             <Image
                 src="https://bit.ly/3jqa4RC"
                 layout="fill"
@@ -13,7 +17,7 @@ function Banner() {
                 <p className="text-2xl lg:text-4xl text-white relative bottom-5 font-semibold">Not sure where to go? Perfect.</p>
                 <button className="text-black bg-white px-10 py-3 shadow-md rounded-full my-3 hover:shadow-lg active:scale-90 transition duration-150 font-bold">I'm flexible</button>
             </div>
-        </div>
+        </motion.div>
     )
 }
 

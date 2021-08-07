@@ -6,6 +6,8 @@ import { format } from "date-fns";
 import { ChevronLeftIcon } from '@heroicons/react/solid'
 import { ChevronRightIcon } from '@heroicons/react/solid'
 import InfoCard from "../components/InfoCard";
+import { motion } from 'framer-motion';
+
 
 
 function Search({ searchResults }) {
@@ -17,27 +19,63 @@ function Search({ searchResults }) {
     const formattedEndDate = format(new Date(endDate), "dd MMMM yy")
     const formattedLocation = location.charAt(0).toUpperCase() + location.slice(1);
 
+    const fadeLeft = {
+    hidden : { opacity: 0, x: -100 },
+    visible : {opacity:1, x: 0}
+  }
+
 
     return (
         <div>
             <Header placeholder={`${formattedLocation} | ${formattedStartDate} | ${formattedEndDate} | ${noOfGuest} Guests`} />
             <main className="flex items-center">
                 <section className="flex-grow mt-3 px-6">
-                    <div className="flex items-center mb-5 text-gray-500  w-16 cursor-pointer hover:text-gray-700 transition ease-out hover:animate-pulse" onClick={() => router.push("/") }>
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 1 }}
+                        className="flex items-center mb-5 text-gray-500  w-16 cursor-pointer hover:text-gray-700 transition ease-out hover:animate-pulse" onClick={() => router.push("/")}>
                         <ChevronLeftIcon className="h-6" />
                         <p className="mr-2 text-md font-bold ">Back</p>
-                    </div>
-                    <p className="text-xs">300+ Stays - <span className="bg-gray-200 p-1 rounded-md cursor-default select-none">{formattedStartDate}</span> - <span className="bg-gray-200 p-1 rounded-md cursor-default select-none">{formattedEndDate}</span> - for {noOfGuest} Guests</p>
-                    <h1 className="text-3xl font-semibold mt-5 mb-3">Stays on { formattedLocation }</h1>
-                    <div className=" hidden md:inline-flex items-center overflow-hidden text-gray-800 whitespace-nowrap mb-5 space-x-3">
+                    </motion.div>
+                    <p className="text-xs">300+ Stays -
+                        <motion.span
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{duration: 1}} 
+                            className="bg-gray-200 p-1 rounded-md cursor-default select-none">{formattedStartDate}
+                        </motion.span> -
+                        <motion.span
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 1 }}
+                            className="bg-gray-200 p-1 rounded-md cursor-default select-none">{formattedEndDate}
+                        </motion.span> - for {noOfGuest} Guests</p>
+                    <motion.h1
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 1 }}
+                        className="text-3xl font-semibold mt-5 mb-3">Stays on {formattedLocation}
+                    </motion.h1>
+                    <motion.div 
+                        variants={fadeLeft}
+                        initial="hidden"
+                        animate="visible"
+                        transition={{duration:1}}
+                        className="flex flex-col" className=" hidden md:inline-flex items-center overflow-hidden text-gray-800 whitespace-nowrap mb-5 space-x-3">
                         <p className="button">Cancellation Flexibility</p>
                         <p className="button">Type of Place</p>
                         <p className="button">Price</p>
                         <p className="button">Rooms and Beds</p>
                         <p className="button">More filters</p>
-                    </div>
+                    </motion.div>
                     <MenuMb />
-                <div className="flex flex-col">
+                <motion.div 
+                        variants={fadeLeft}
+                        initial="hidden"
+                        animate="visible"
+                        transition={{duration:1}}
+                        className="flex flex-col">
                     {searchResults?.map(({img, location, title, description,star,price,total }) => (
                         <InfoCard
                             key={img}
@@ -50,7 +88,7 @@ function Search({ searchResults }) {
                             total={total}
                         />
                     ))}
-                    </div>
+                    </motion.div>
                     <div className="hidden sm:inline">
                         <div className="flex mt-5 mb-5 items-center justify-center space-x-5">
                         <ChevronLeftIcon className="h-6 text-gray-200 cursor-not-allowed" />
