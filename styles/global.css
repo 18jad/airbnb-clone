@@ -1,6 +1,6 @@
 @tailwind components;
 @layer components {
     .button {
-        @apply px-4 py-2 border border-[#FF385C] rounded-full cursor-pointer hover:bg-[#FF385C] hover:shadow-lg active:scale-95  active:bg-[#b82a44] transition duration-200  select-none;
+        @apply px-4 py-2 border border-[#FF385C] rounded-full cursor-pointer hover:bg-[#FF385C] hover:shadow-lg active:scale-95 active:bg-[#b82a44] transition duration-200  select-none;
     }
 }
