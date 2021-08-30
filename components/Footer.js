@@ -12,7 +12,7 @@ function Footer() {
                 <p className="hover:underline cursor-pointer">HotelTonight</p>
                 <p className="hover:underline cursor-pointer">Airbnb for Work</p>
                 <p className="hover:underline cursor-pointer">Careers</p>
-                <p className="hover:underline cursor-pointer">Made By <a href="https://github.com/DizerX" className="font-bold"> @Dizer</a></p>
+                <p className="hover:underline cursor-pointer">Made By <a href="https://github.com/18jad" className="font-bold"> @18jad</a></p>
 
             </div>
 
